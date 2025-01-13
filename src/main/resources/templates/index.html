@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazin Online</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Setează fundalul paginii la negru */
+        body {
+            background-color: black;
+            color: white; /* Setează textul la alb pentru a fi vizibil pe fundalul negru */
+            font-family: Arial, sans-serif; /* Alege o fontă clară */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Setează titlurile (h1, h2, h3, etc.) să fie de culoare roșie */
+        h1, h2, h3, h4, h5, h6 {
+            color: red;
+        }
+
+        /* Dacă vrei să stilizezi butoanele */
+        .btn-primary {
+            background-color: red;
+            border-color: red;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: darkred;
+            border-color: darkred;
+        }
+
+        /* Stilizare carduri (dacă folosești carduri pentru produse) */
+        .card {
+            background-color: #333; /* Carduri cu un fundal mai deschis față de fundalul general */
+            color: white; /* Text alb pentru carduri */
+            border: 1px solid #444;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+    <style>
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .card-img-top {
+            object-fit: cover; /* Ajustează imaginea să ocupe întreg spațiul alocat */
+            height: 200px; /* Setează o înălțime fixă pentru toate imaginile */
+        }
+
+        .card-body {
+            flex-grow: 1; /* Permite cardului să se întindă uniform */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: auto; /* Plasează butonul la fundul cardului */
+        }
+
+        .row {
+            margin-top: 30px;
+        }
+
+        /* Asigură că toate categoriile au aceeași lățime și înălțime */
+        .col-md-3 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .col-md-3 .card {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center mt-5">Magazin Online</h1>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Categorie 1 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="http://localhost:8081/category/accesorii.jpg" class="card-img-top" alt="Accesorii">
+                    <div class="card-body">
+                        <h5 class="card-title">Accesorii</h5>
+                        <a href="/products/category/1" class="btn btn-primary">Vezi Produse</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categorie 2 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="http://localhost:8081/category/mingi.jpg" class="card-img-top" alt="Mingi">
+                    <div class="card-body">
+                        <h5 class="card-title">Mingi</h5>
+                        <a href="/shop/category/2" class="btn btn-primary">Vezi Produse</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categorie 3 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="http://localhost:8081/category/articoleVestimentare.jpg" class="card-img-top" alt="Articole Vestimentare">
+                    <div class="card-body">
+                        <h5 class="card-title">Articole Vestimentare</h5>
+                        <a href="/shop/category/3" class="btn btn-primary">Vezi Produse</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categorie 4 -->
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="http://localhost:8081/category/pantofi.jpg" class="card-img-top" alt="Pantofi">
+                    <div class="card-body">
+                        <h5 class="card-title">Pantofi</h5>
+                        <a href="/shop/category/4" class="btn btn-primary">Vezi Produse</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <style>
+                /* Cardul în sine */
+                .card {
+                    width: 230px; /* Lățime fixă a cardului, care face cadrul mai îngust */
+                    margin: 10px; /* Margină între carduri, opțional */
+
+                }
+
+                /* Imagina din card */
+                .card-img-top {
+                    width: 100%; /* Ajustează automat pe lățimea cardului */
+                    height: 150px; /* Setează o înălțime fixă pentru imagine */
+                    object-fit: cover; /* Asigură că imaginea se redimensionează fără deformare */
+                }
+            </style>
+
+            <!-- Produs 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs1.jpg" alt="Minge fotbal Nike" class="card-img-top"/>
+                    <div class="card-body">
+
+                        <h5 class="card-title">Minge fotbal Nike</h5>
+                        <p class="card-text">Minge fotbal Nike Park Team, marime 5, Alb/Negru.</p>
+                        <p class="fw-bold">Preț: 350.5 RON</p>
+                        <p class="text-muted">Stoc: 100</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="1"
+                                data-denumire="Minge fotbal Nike"
+                                data-pret="350.0">Adaugă în Coș</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs2.jpg" alt="Minge baschet Spalding" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Minge baschet Spalding</h5>
+                        <p class="card-text">Producator: Spalding. Categorii: Minge baschet, marime 6, portocaliu.</p>
+                        <p class="fw-bold">Preț: 200.0 RON</p>
+                        <p class="text-muted">Stoc: 50</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="2"
+                                data-denumire="Minge baschet Spalding"
+                                data-pret="200.0">Adaugă în Coș</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs3.jpg" alt="Minge tenis Wilson" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Minge tenis Wilson</h5>
+                        <p class="card-text">Mingea de tenis Wilson Roland Garros Jumbo, suvenir minunat pentru fanii tenisului.</p>
+                        <p class="fw-bold">Preț: 150.0 RON</p>
+                        <p class="text-muted">Stoc: 200</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="3"
+                                data-denumire="Minge tenis Wilson"
+                                data-pret="150.0">Adaugă în Coș</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 4 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs4.jpg" alt="Minge volei Mikasa" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Minge volei Mikasa</h5>
+                        <p class="card-text">Minge volei marca Mikasa, piele sintetică de calitate superioară, mărime 5.</p>
+                        <p class="fw-bold">Preț: 80.0 RON</p>
+                        <p class="text-muted">Stoc: 150</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="4"
+                                data-denumire="Minge volei Mikasa"
+                                data-pret="80.0">Adaugă în Coș</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 5 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs5.jpg" alt="Minge rugby Gilbert" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Minge rugby Gilbert</h5>
+                        <p class="card-text">Un upgrade al clasicului Barbarian Match Ball pentru o experiență de joc optimă.</p>
+                        <p class="fw-bold">Preț: 300.0 RON</p>
+                        <p class="text-muted">Stoc: 75</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="5"
+                                data-denumire="Minge rugby Gilbert"
+                                data-pret="300.0">Adaugă în Coș</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 6 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs6.jpg" alt="Geantă echipament sportiv" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Geantă echipament sportiv</h5>
+                        <p class="card-text">Geantă încăpătoare și rezistentă pentru toate necesitățile tale sportive.</p>
+                        <p class="fw-bold">Preț: 250.0 RON</p>
+                        <p class="text-muted">Stoc: 20</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="6"
+                                data-denumire="Geantă echipament sportiv"
+                                data-pret="250.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exemplu pentru Produs 7 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs7.jpg" alt="Bentițe absorbante" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Bentițe absorbante</h5>
+                        <p class="card-text">Bentițe pentru frunte, set de 3.</p>
+                        <p class="fw-bold">Preț: 30.0 RON</p>
+                        <p class="text-muted">Stoc: 15</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="7"
+                                data-denumire="Bentițe absorbante"
+                                data-pret="30.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 8 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs8.jpg" alt="Sticlă de apă Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Sticlă de apă Nike</h5>
+                        <p class="card-text">Sticlă de hidratare de 1L, ideală pentru antrenamente intense.</p>
+                        <p class="fw-bold">Preț: 60.0 RON</p>
+                        <p class="text-muted">Stoc: 50</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="8"
+                                data-denumire="Sticlă de apă Nike"
+                                data-pret="60.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 9 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs9.jpg" alt="Suport pentru mingi" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Suport pentru mingi</h5>
+                        <p class="card-text">Suport pentru depozitarea și organizarea mingilor sportive.</p>
+                        <p class="fw-bold">Preț: 150.0 RON</p>
+                        <p class="text-muted">Stoc: 20</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="9"
+                                data-denumire="Suport pentru mingi"
+                                data-pret="150.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 10 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs10.jpg" alt="Ochelari de înot Speedo" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Ochelari de înot Speedo</h5>
+                        <p class="card-text">Ochelari pentru competiții de înot, design ergonomic și confortabil.</p>
+                        <p class="fw-bold">Preț: 125.0 RON</p>
+                        <p class="text-muted">Stoc: 35</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="10"
+                                data-denumire="Ochelari de înot Speedo"
+                                data-pret="125.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 11 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs11.jpg" alt="Tricou sport Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Tricou sport Nike</h5>
+                        <p class="card-text">Tricou ușor din material respirabil, ideal pentru antrenamente intense.</p>
+                        <p class="fw-bold">Preț: 225.0 RON</p>
+                        <p class="text-muted">Stoc: 200</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="11"
+                                data-denumire="Tricou sport Nike"
+                                data-pret="225.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 12 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs12.jpg" alt="Pantaloni de antrenament Adidas" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Pantaloni de antrenament Adidas</h5>
+                        <p class="card-text">Pantaloni lungi pentru fitness, confortabili și flexibili.</p>
+                        <p class="fw-bold">Preț: 100.0 RON</p>
+                        <p class="text-muted">Stoc: 150</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="12"
+                                data-denumire="Pantaloni de antrenament Adidas"
+                                data-pret="100.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 13 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs13.jpg" alt="Șapcă sport Puma" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Șapcă sport Puma</h5>
+                        <p class="card-text">Șapcă ușoară din material respirabil, perfectă pentru zilele însorite.</p>
+                        <p class="fw-bold">Preț: 70.0 RON</p>
+                        <p class="text-muted">Stoc: 40</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="13"
+                                data-denumire="Șapcă sport Puma"
+                                data-pret="70.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 14 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs14.jpg" alt="Hanorac sportiv Reebok" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Hanorac sportiv Reebok</h5>
+                        <p class="card-text">Hanorac confortabil pentru vreme rece, potrivit pentru antrenamente sau casual.</p>
+                        <p class="fw-bold">Preț: 250.0 RON</p>
+                        <p class="text-muted">Stoc: 40</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="14"
+                                data-denumire="Hanorac sportiv Reebok"
+                                data-pret="250.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 15 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs15.jpg" alt="Jachetă impermeabilă Columbia" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Jachetă impermeabilă Columbia</h5>
+                        <p class="card-text">Jachetă ușoară și rezistentă la apă, perfectă pentru activități outdoor.</p>
+                        <p class="fw-bold">Preț: 400.0 RON</p>
+                        <p class="text-muted">Stoc: 20</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="15"
+                                data-denumire="Jachetă impermeabilă Columbia"
+                                data-pret="400.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 16 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs16.jpg" alt="Adidași pentru alergare Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Adidași pentru alergare Nike</h5>
+                        <p class="card-text">Pantofi ușori și confortabili, ideali pentru alergare și sport.</p>
+                        <p class="fw-bold">Preț: 450.0 RON</p>
+                        <p class="text-muted">Stoc: 100</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="16"
+                                data-denumire="Adidași pentru alergare Nike"
+                                data-pret="450.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 17 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs17.jpg" alt="Pantofi de baschet Air Jordan" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Pantofi de baschet Air Jordan</h5>
+                        <p class="card-text">Pantofi special concepuți pentru baschet, cu suport și amortizare excelente.</p>
+                        <p class="fw-bold">Preț: 600.0 RON</p>
+                        <p class="text-muted">Stoc: 15</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="17"
+                                data-denumire="Pantofi de baschet Air Jordan"
+                                data-pret="600.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 18 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs18.jpg" alt="Pantofi pentru drumeții Salomon" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Pantofi pentru drumeții Salomon</h5>
+                        <p class="card-text">Pantofi rezistenți la apă, ideali pentru drumeții și terenuri dificile.</p>
+                        <p class="fw-bold">Preț: 550.0 RON</p>
+                        <p class="text-muted">Stoc: 10</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="18"
+                                data-denumire="Pantofi pentru drumeții Salomon"
+                                data-pret="550.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 19 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs19.jpg" alt="Sandale sport Columbia" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Sandale sport Columbia</h5>
+                        <p class="card-text">Sandale ușoare și confortabile, perfecte pentru zilele calde de vară.</p>
+                        <p class="fw-bold">Preț: 200.0 RON</p>
+                        <p class="text-muted">Stoc: 35</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="19"
+                                data-denumire="Sandale sport Columbia"
+                                data-pret="200.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 20 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs20.jpg" alt="Papuci sport Adidas" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Papuci sport Adidas</h5>
+                        <p class="card-text">Papuci ideali pentru piscină și duș, cu design ergonomic.</p>
+                        <p class="fw-bold">Preț: 80.0 RON</p>
+                        <p class="text-muted">Stoc: 40</p>
+                        <button class="btn btn-primary w-100"
+                                data-id="20"
+                                data-denumire="Papuci sport Adidas"
+                                data-pret="80.0">Adaugă în Coș</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Adaugă produs în coș
+        document.querySelectorAll('.btn-primary[data-id]').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Obținem datele produsului
+                let produsId = this.getAttribute('data-id');
+                let produsDenumire = this.getAttribute('data-denumire');
+                let produsPret = parseFloat(this.getAttribute('data-pret'));
+
+                // Creează un obiect cu detaliile produsului
+                let produs = {
+                    id: produsId,
+                    denumire: produsDenumire,
+                    pret: produsPret
+                };
+
+                // Obținem coșul existent din localStorage, sau un array gol dacă nu există
+                let cos = JSON.parse(localStorage.getItem('cos')) || [];
+
+                // Adaugă produsul la coș
+                cos.push(produs);
+
+                // Salvează din nou coșul în localStorage
+                localStorage.setItem('cos', JSON.stringify(cos));
+
+                // Afișează un mesaj de confirmare
+                alert(produsDenumire + ' a fost adăugat în coș!');
+            });
+        });
+    </script>
+    <footer class="bg-light text-center py-3">
+        <a href="cos.html" class="btn btn-secondary">Vezi Coșul</a>
+    </footer>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

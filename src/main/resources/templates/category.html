@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="'Produse din categoria ' + ${category.name}">Produse</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<div class="container">
+    <!-- Imaginea categoriei - doar pentru categoriile Mingi, Accesorii, Articole Vestimentare și Pantofi -->
+    <div class="text-center mb-4">
+        <div th:switch="${category.name}">
+            <div th:case="'Mingi'">
+                <img src="http://localhost:8081/category/mingi.jpg" alt="Imagine Mingi" class="img-fluid" />
+            </div>
+            <div th:case="'Accesorii'">
+                <img src="http://localhost:8081/category/accesorii.jpg" alt="Imagine Accesorii" class="img-fluid" />
+            </div>
+            <div th:case="'Articole Vestimentare'">
+                <img src="http://localhost:8081/category/articoleVestimentare.jpg" alt="Imagine Articole Vestimentare" class="img-fluid" />
+            </div>
+            <div th:case="'Pantofi'">
+                <img src="http://localhost:8081/category/pantofi.jpg" alt="Imagine Pantofi" class="img-fluid" />
+            </div>
+            <!-- Dacă nu este una dintre categoriile specificate, nu se afișează imagine -->
+            <div th:case="*">
+                <!-- Fără imagine -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 th:text="'Produse din categoria ' + ${category.name}">Produse</h1>
+        <div class="row">
+
+            <!-- Produs 1 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs1.jpg" alt="Minge fotbal Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product1.name}">Minge Fotbal Nike</h5>
+                        <p class="card-text" th:text="${product1.description}">Minge fotbal Nike Park Team, marime 5, Alb/Negru.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product1.price} + ' RON'">Pret: 350.5 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs2.jpg" alt="Minge baschet Spalding" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product2.name}">Minge Baschet Spalding</h5>
+                        <p class="card-text" th:text="${product2.description}">Minge baschet Spalding, marime 6, portocaliu.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product2.price} + ' RON'">Pret: 200.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs3.jpg" alt="Minge tenis Wilson" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product3.name}">Minge Tenis Wilson</h5>
+                        <p class="card-text" th:text="${product3.description}">Mingea de tenis Wilson Roland Garros Jumbo, suvenir minunat pentru fanii tenisului.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product3.price} + ' RON'">Pret: 150.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs4.jpg" alt="Minge volei Mikasa" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product4.name}">Minge volei Mikasa</h5>
+                        <p class="card-text" th:text="${product4.description}">Minge volei marca Mikasa, piele sintetică de calitate superioară, mărime 5.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product4.price} + ' RON'">Pret: 80.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 5 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs5.jpg" alt="Minge rugby Gilbert" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product5.name}">Minge rugby Gilbert</h5>
+                        <p class="card-text" th:text="${product5.description}">Un upgrade al clasicului Barbarian Match Ball pentru o experiență de joc optimă.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product5.price} + ' RON'">Pret: 300.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 6 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs6.jpg" alt="Geantă echipament sportiv" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product6.name}">Geantă echipament sportiv</h5>
+                        <p class="card-text" th:text="${product6.description}">Geantă încăpătoare și rezistentă pentru toate necesitățile tale sportive.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product6.price} + ' RON'">Pret: 250.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 7 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs7.jpg" alt="Bentițe absorbante" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product7.name}">Bentițe absorbante</h5>
+                        <p class="card-text" th:text="${product7.description}">Bentițe pentru frunte, set de 3.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product7.price} + ' RON'">Pret: 30.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 8 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs8.jpg" alt="Sticlă de apă Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product8.name}">Sticlă de apă Nike</h5>
+                        <p class="card-text" th:text="${product8.description}">Sticlă de hidratare de 1L, ideală pentru antrenamente intense.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product8.price} + ' RON'">Pret: 60.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 9 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs9.jpg" alt="Suport pentru mingi" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product9.name}">Suport pentru mingi</h5>
+                        <p class="card-text" th:text="${product9.description}">Suport pentru depozitarea și organizarea mingilor sportive.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product9.price} + ' RON'">Pret: 150.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 10 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs10.jpg" alt="Ochelari de înot Speedo" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product10.name}">Ochelari de înot Speedo</h5>
+                        <p class="card-text" th:text="${product10.description}">Ochelari pentru competiții de înot, design ergonomic și confortabil.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product10.price} + ' RON'">Pret: 125.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 11 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs11.jpg" alt="Tricou sport Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product11.name}">Tricou sport Nike</h5>
+                        <p class="card-text" th:text="${product11.description}">Tricou ușor din material respirabil, ideal pentru antrenamente intense.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product11.price} + ' RON'">Pret: 225.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 12 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs12.jpg" alt="Pantaloni de antrenament Adidas" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product12.name}">Pantaloni de antrenament Adidas</h5>
+                        <p class="card-text" th:text="${product12.description}">Pantaloni lungi pentru fitness, confortabili și flexibili.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product12.price} + ' RON'">Pret: 100.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 13 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs13.jpg" alt="Șapcă sport Puma" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product13.name}">Șapcă sport Puma</h5>
+                        <p class="card-text" th:text="${product13.description}">Șapcă ușoară din material respirabil, perfectă pentru zilele însorite.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product13.price} + ' RON'">Pret: 70.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 14 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs14.jpg" alt="Hanorac sportiv Reebok" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product14.name}">Hanorac sportiv Reebok</h5>
+                        <p class="card-text" th:text="${product14.description}">Hanorac confortabil pentru vreme rece, potrivit pentru antrenamente sau casual.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product14.price} + ' RON'">Pret: 250.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 15 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs15.jpg" alt="Jachetă impermeabilă Columbia" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product15.name}">Jachetă impermeabilă Columbia</h5>
+                        <p class="card-text" th:text="${product15.description}">Jachetă ușoară și rezistentă la apă, perfectă pentru activități outdoor.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product15.price} + ' RON'">Pret: 400.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 16 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs16.jpg" alt="Adidași pentru alergare Nike" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product16.name}">Adidași pentru alergare Nike</h5>
+                        <p class="card-text" th:text="${product16.description}">Pantofi ușori și confortabili, ideali pentru alergare și sport.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product16.price} + ' RON'">Pret: 450.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 17 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs17.jpg" alt="Pantofi de baschet Air Jordan" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product17.name}">Pantofi de baschet Air Jordan</h5>
+                        <p class="card-text" th:text="${product17.description}">Pantofi special concepuți pentru baschet, cu suport și amortizare excelente.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product17.price} + ' RON'">Pret: 600.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 18 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs18.jpg" alt="Pantofi pentru drumeții Salomon" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product18.name}">Pantofi pentru drumeții Salomon</h5>
+                        <p class="card-text" th:text="${product18.description}">Pantofi rezistenți la apă, ideali pentru drumeții și terenuri dificile.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product18.price} + ' RON'">Pret: 550.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 19 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs19.jpg" alt="Sandale sport Columbia" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product19.name}">Sandale sport Columbia</h5>
+                        <p class="card-text" th:text="${product19.description}">Sandale ușoare și confortabile, perfecte pentru zilele calde de vară.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product19.price} + ' RON'">Pret: 200.0 RON</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produs 20 -->
+            <div class="col-md-3 mb-4">
+                <div class="card h-100">
+                    <img src="http://localhost:8081/images/produs20.jpg" alt="Papuci sport Adidas" class="card-img-top"/>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${product20.name}">Papuci sport Adidas</h5>
+                        <p class="card-text" th:text="${product20.description}">Papuci ideali pentru piscină și duș, cu design ergonomic.</p>
+                        <p class="card-text" th:text="'Pret: ' + ${product20.price} + ' RON'">Pret: 80.0 RON</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+</html>

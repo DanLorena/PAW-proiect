@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ro">
+<html lang="ro">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Coșul tau de cumpărături</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    </head>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Coșul tău de cumpărături</h1>
+
+    <!-- Afișarea produselor din coș -->
+    <div id="cosContent" class="row">
+        <!-- Produsele din coș vor fi afișate aici -->
+    </div>
+
+    <!-- Afișarea totalului coșului -->
+    <div class="text-center mt-4">
+        <h3 id="totalCos">Total: 0 RON</h3>
+    </div>
+
+    <!-- Buton pentru finalizarea comenzii -->
+    <div class="text-center mt-4">
+        <button class="btn btn-success" onclick="finalizeazaComanda()">Finalizează comanda</button>
+    </div>
+</div>
+
+<script>
+    const cosId = 1; // Exemplu de ID al coșului, ar trebui să fie obținut din backend sau localStorage
+
+    // Afișează produsele din coș și calculează totalul
+    async function loadCos() {
+        // Obține produsele din coș din API
+        let response = await fetch(`/api/cos/${cosId}`);
+        let cos = await response.json();
+
+        let cosContent = document.getElementById('cosContent');
+        cosContent.innerHTML = ''; // Curăță conținutul existent
+
+        // Calculăm totalul
+        let total = cos.reduce((sum, produs) => sum + produs.pret, 0);
+        document.getElementById('totalCos').innerText = `Total: ${total} RON`;
+
+        if (cos.length === 0) {
+            cosContent.innerHTML = '<p class="text-center">Coșul este gol.</p>';
+            return;
+        }
+
+        // Parcurge fiecare produs și adaugă-l în coș
+        cos.forEach(function(produs) {
+            let produsHtml = `
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${produs.denumire}">${produs.denumire}</h5>
+                            <p class="fw-bold" th:text="'Preț: ' + ${produs.pret} + ' RON'">Preț: ${produs.pret} RON</p>
+                            <button class="btn btn-danger" onclick="stergeDinCos(${produs.id})">Șterge</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            cosContent.innerHTML += produsHtml;
+        });
+    }
+
+    // Șterge un produs din coș
+    async function stergeDinCos(produsId) {
+        let response = await fetch(`/api/cos/${cosId}/sterge`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: produsId })
+        });
+
+        if (response.ok) {
+            loadCos(); // Reîncarcă coșul
+        }
+    }
+
+    // Funcția de finalizare a comenzii
+    async function finalizeazaComanda() {
+        let response = await fetch(`/api/cos/${cosId}/finalizeaza`, {
+            method: 'POST',
+        });
+
+        if (response.ok) {
+            alert('Comanda a fost finalizată! Mulțumim că ai ales magazinul nostru.');
+            await loadCos(); // Reîncarcă coșul pentru a actualiza pagina
+        } else {
+            alert('A apărut o problemă la finalizarea comenzii.');
+        }
+    }
+
+    // Încarcă produsele din coș la deschiderea paginii
+    loadCos();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
